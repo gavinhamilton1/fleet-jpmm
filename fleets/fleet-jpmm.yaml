@@ -8,16 +8,11 @@ metadata:
 spec:
   name: "JPMM"
   subdomain: "jpmm.jpm.com"
-  gatewayType: envoy
-  replicas: 2
+  gatewayType: kong
+  replicas: 1
   nodes:
-    - name: "fleet-jpmm-envoy-1"
+    - name: "fleet-jpmm-kong-1"
       index: 1
       datacenter: "us-east-2"
       region: "us-east-2"
-      status: "running"
-    - name: "fleet-jpmm-envoy-2"
-      index: 2
-      datacenter: "eu-west-1"
-      region: "eu-west-1"
       status: "running"
