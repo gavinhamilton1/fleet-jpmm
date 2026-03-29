@@ -6,14 +6,18 @@ metadata:
   labels:
     app.kubernetes.io/managed-by: management-api
 spec:
-  gatewayType: kong
-  replicas: 1
+  name: "JPMM"
+  subdomain: "jpmm.jpm.com"
+  gatewayType: envoy
+  replicas: 2
   nodes:
-    - name: "fleet-jpmm-kong-1"
+    - name: "fleet-jpmm-envoy-1"
       index: 1
       datacenter: "us-east-2"
       region: "us-east-2"
       status: "running"
-status:
-  phase: Pending
-  observedGeneration: 0
+    - name: "fleet-jpmm-envoy-2"
+      index: 2
+      datacenter: "eu-west-1"
+      region: "eu-west-1"
+      status: "running"
