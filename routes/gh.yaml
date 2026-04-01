@@ -29,7 +29,7 @@ spec:
   functionCode: |
       module.exports = async (req, res) => {
         res.json({
-          message: 'Hello from Gavin!',
+          message: 'Hello from Lambda!',
           path: req.path,
           method: req.method,
           timestamp: new Date().toISOString(),
