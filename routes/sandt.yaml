@@ -1,0 +1,28 @@
+apiVersion: ingress.jpmc.com/v1alpha1
+kind: Route
+metadata:
+  name: fb830331-98b2-4e98-a8ec-1f5ae3315ca9
+  namespace: ingress-dp
+  labels:
+    app.kubernetes.io/managed-by: management-api
+    ingress.jpmc.com/gateway: envoy
+spec:
+  path: "/sandt"
+  hostname: "jpmm.jpm.com"
+  backendUrl: "http://svc-web:8004"
+  gatewayType: envoy
+  audience: "jpmm"
+  team: "markets"
+  authnMechanism: "bearer"
+  authIssuer: "Janus"
+  tlsRequired: true
+  targetFleet: "jpmm.jpm.com"
+  methods:
+    - GET
+    - POST
+    - PUT
+    - DELETE
+  healthPath: "/health"
+  notes: "Seed route (jpmm.jpm.com)"
+status:
+  phase: Pending
