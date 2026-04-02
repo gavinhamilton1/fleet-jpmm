@@ -1,0 +1,28 @@
+apiVersion: ingress.jpmc.com/v1alpha1
+kind: Route
+metadata:
+  name: 79845273-6e66-4ac9-be5d-7154f77217ea
+  namespace: ingress-dp
+  labels:
+    app.kubernetes.io/managed-by: management-api
+    ingress.jpmc.com/gateway: kong
+spec:
+  path: "/research/api"
+  hostname: "jpmm.jpm.com"
+  backendUrl: "http://svc-api:8005"
+  gatewayType: kong
+  audience: "jpmm"
+  team: "markets"
+  authnMechanism: "bearer"
+  authIssuer: "Janus"
+  tlsRequired: true
+  targetFleet: "jpmm.jpm.com"
+  methods:
+    - GET
+    - POST
+    - PUT
+    - DELETE
+  healthPath: "/health"
+  notes: "Seed route (jpmm.jpm.com)"
+status:
+  phase: Pending
